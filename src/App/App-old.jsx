@@ -1,7 +1,7 @@
 import React from 'react';
-import { Router, Route, BrowserRouter} from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {Navbar} from '../Navbar';
+
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
 import { PrivateRoute } from '../_components';
@@ -25,16 +25,14 @@ class App extends React.Component {
         console.log("rednering app")
         const { alert } = this.props;
         return (
-            <div>
-          
-                    <div className="col-sm-12">
+            <div className="jumbotron">
+                <div className="container">
+                    <div className="col-sm-8 col-sm-offset-2">
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
                         <Router history={history}>
-                       
                             <div>
-                                <Navbar />
                                 <PrivateRoute exact path="/" component={PostsIndex} />
                                 <Route path="/login" component={LoginPage} />
                                 <PrivateRoute exact path="/posts" component={PostsIndex} />
@@ -42,8 +40,8 @@ class App extends React.Component {
                             </div>
                         </Router>
                     </div>
-                    </div>
-                
+                </div>
+            </div>
         );
     }
 }

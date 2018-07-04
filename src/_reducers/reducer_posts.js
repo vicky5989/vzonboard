@@ -2,8 +2,14 @@ import _ from "lodash";
 import { FETCH_POSTS, FETCH_POST, DELETE_POST } from "../_actions";
 
 export default function (state = {}, action) {
-    let data = [{ "id": 254172, "title": "Analyst-SYstem/dev", "application_status": "applied", "HR": "xyz", "Hiring_Manager": "abc" },
-    { "id": 254223, "title": "Spec-SYstem/dev", "application_status": "applied", "HR": "xyz", "Hiring_Manager": "abc" }];
+    let data = [{ "id": 254172, "jobCode":"JC112" ,"skills":"MERN",   "title": "Analyst-SYstem/dev","location":"Chennai",
+     "application_status": "applied", "jobTitle":"FULL STACK DEV",
+      "HR": "xyz",
+      "HRContact":123,
+       "Hiring_Manager": "abc" },
+    { "id": 254223, "jobCode":"JC111" ,"jobTitle":"UI DEV",
+    "HRContact":123,
+    "skills":"MERN","location":"Bangalore", "title": "Spec-SYstem/dev", "application_status": "applied", "HR": "xyz", "Hiring_Manager": "abc" }];
 
 
     switch (action.type) {
