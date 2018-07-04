@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchPost, deletePost } from "../_actions";
+import Test from '../_components/Test';
+import { withStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
 
 class PostsShow extends Component {
 
@@ -18,53 +28,112 @@ class PostsShow extends Component {
         });
     }
 
+   
+
     render() {
         const { post } = this.props;
+
+        function getStepContent(step) {
+            switch (step) {
+              case 0:
+                return `For each ad campaign that you create, you can control how much
+                        you're willing to spend on clicks and conversions, which networks
+                        and geographical locations you want your ads to show on, and more.`;
+              case 1:
+                return 'An ad group contains one or more ads which target a shared set of keywords.';
+              case 2:
+                return `Try out different ad text to see what brings in the most customers,
+                        and learn how to enhance your ads using features like ad extensions.
+                        If you run into any problems with your ads, find out how to tell if
+                        they're running and how to resolve approval issues.`;
+              default:
+                return 'Unknown step';
+            }
+          }
 
         if (!post) {
             return <div>Loading...</div>;
         }
+        const steps = ['applied', 'interview', 'documents verification','onboard'];
 
         return (
+            
             <div>
-
                 <Link to="/posts">Back To Index</Link>
 
-                <h3>{post.title}</h3>
-                <h6>HR:{post.HR}</h6>
-                <p>{post.content}</p>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="col-md-4">
-                                    <span className="badge badge-default">Label1</span> <span className="badge badge-default">Label2</span> <span className="badge badge-default">Label3</span>
-                                </div>
-                                <div className="col-md-4">
-                                    <span className="badge badge-default">Label4</span>
-                                </div>
-                                <div className="col-md-4">
-                                    <span className="badge badge-default">Label5</span>
-                                </div>
+            <div className="row">
+
+                <div className="col-md-12">
+                    <div className="col-md-2"> </div>
+                    <div className="col-md-8">
+                <Stepper activeStep={2} orientation="vertical">
+                     {steps.map((label, index) => {
+                     return (
+                        <Step key={label}>
+                        <StepLabel>{label}</StepLabel>
+                        <StepContent>
+                            <Typography>{getStepContent(index)}</Typography>
+                         </StepContent>
+                        </Step>
+                    );
+                })}
+
+                </Stepper>
+
+                    <div className="container-fluid"> 
+                    
+                            <div className="row"> 
+                            
+                                <div className="col-md-4"> 
+                                
+                                <div className="col-md-4">   <label> Job Code &nbsp;- </label>   </div>
+                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                
+                                 </div>
+                                 <div className="col-md-6"> 
+                                
+                                <div className="col-md-4">   <label> location &nbsp;- </label>   </div>
+                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                
+                                 </div>
                             </div>
-                        </div>
+                            <div className="row"> 
+                            
+                                <div className="col-md-4"> 
+                                
+                                <div className="col-md-4">   <label> Job Code &nbsp;- </label>   </div>
+                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                
+                                 </div>
+                                 <div className="col-md-6"> 
+                                
+                                <div className="col-md-4">   <label> Job Code &nbsp;- </label>   </div>
+                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                
+                                 </div>
+                            </div>
+                            <br />
+						 <div className="row"> 
+                    <div className="col-md-4"> <label> Skills &nbsp;- </label>  <br />
+                        gsdkfsjkghkjseghksehgkisegkskghkugwguegf,fz.gnzkn,gfsbngshgiwkgnwmbgfs,m
+					</div>
+                     </div>
+                     <br />
+                     <div className="row"> 
+                    <div className="col-md-4"> <label> Roles and Responsibilties &nbsp;- </label>  <br />
+                    <ul> 
+                        <li><p> TEST </p> </li>
+                        
+                    </ul>
+						</div>
+                     </div>
+						
                     </div>
-                    <div className="row">
-                        <div className="col-md-8">
-                            <h2>
-                                Job Description
-			</h2>
-                            <p>
-                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-                            <p>
-                                <a className="btn" href="#">View details »</a>
-                            </p>
-                        </div>
-                        <div className="col-md-4">
-                        </div>
-                    </div>
+
+                   
                 </div>
+                </div>             
+             </div>
             </div>
         );
     }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { userActions } from '../_actions';
 
+
 class Navbar extends React.Component {
     
 
@@ -48,9 +49,8 @@ class Navbar extends React.Component {
       <a className="navbar-brand" href="#">VZ Onboard</a>
     </div>
     <ul className="nav navbar-nav">
-      <li className="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+    <li className="active"><Link to="/posts">Home </Link></li>
+      <li><Link to="/about">About </Link> </li>
     </ul>
     <ul className="nav navbar-nav navbar-right">
      
@@ -66,7 +66,6 @@ class Navbar extends React.Component {
 }
 
 function mapStateToProps(state) {
-   debugger;
     return {
         authentication : state.authentication
     };

@@ -9,6 +9,7 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import PostsIndex from '../_components/PostsIndex';
 import PostsShow from '../_components/posts_show';
+import About from '../_components/About';
 
 class App extends React.Component {
     constructor(props) {
@@ -38,6 +39,7 @@ class App extends React.Component {
                                 <PrivateRoute exact path="/" component={PostsIndex} />
                                 <Route path="/login" component={LoginPage} />
                                 <PrivateRoute exact path="/posts" component={PostsIndex} />
+                                <PrivateRoute exact path="/about" component={About} />
                                 <PrivateRoute path="/posts/:id" component={PostsShow} />
                             </div>
                         </Router>

@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchPosts } from "../_actions";
-import JobPost from "../_components/JobPost"
+import JobPost from "../_components/JobPost";
+import Profile from "./profile"
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -28,9 +29,9 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-        <div className="col-md-2"> </div>
+        <div className="col-md-2"><Profile /> </div>
         <div className="col-md-8">
-        <Link to="/login">Logout</Link>
+        
         <h3>Posts</h3>
         <ul className="list-group">
           {this.renderPosts()}

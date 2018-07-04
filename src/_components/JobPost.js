@@ -37,11 +37,16 @@ class JobPost extends Component {
      <label>&nbsp; Hiring Manager Info &nbsp;- &nbsp; </label>
      {post.Hiring_Manager} -  {post.HRContact}
 
-</div>
+</div> <br />
+            <div className="row">
+            <div className="col-md-2"> <a href="#/"> <button className="btn-xs btn-primary" > Contact HR </button> </a></div>
+            <div className="col-md-offset-10">
                 <ul className="list-group">
 
                     <Link to={moredetails}>more details...</Link>
                 </ul>
+                </div>
+                </div>
             </div>
         );
     }
