@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchPosts } from "../_actions";
 import JobPost from "../_components/JobPost";
-import Profile from "./profile"
+//import Profile from "./profile"
 
 class PostsIndex extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    console.log('postindex-------------------',this.props)
+    const user= this.props.authentication ? (this.props.authentication.user ? this.props.authentication.user : null) : null;
+    this.props.fetchPosts(user.username);
   }
 
   renderPosts() {
@@ -29,7 +31,7 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-        <div className="col-md-2"><Profile /> </div>
+        <div className="col-md-2"> </div>
         <div className="col-md-8">
         
         <h3>Posts</h3>
@@ -44,7 +46,8 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { posts: state.posts };
+  return { posts: state.posts ,
+    authentication : state.authentication};
 }
 
 export default connect(mapStateToProps, { fetchPosts })(PostsIndex);

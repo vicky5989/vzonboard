@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchPost, deletePost } from "../_actions";
-import Test from '../_components/Test';
+
 import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -32,22 +32,18 @@ class PostsShow extends Component {
 
     render() {
         const { post } = this.props;
-
+        console.log('postttttttttttttttttttt',post);
+        
         function getStepContent(step) {
             switch (step) {
               case 0:
-                return `For each ad campaign that you create, you can control how much
-                        you're willing to spend on clicks and conversions, which networks
-                        and geographical locations you want your ads to show on, and more.`;
+                return `applied on ${post.appliedDate}`;
               case 1:
-                return 'An ad group contains one or more ads which target a shared set of keywords.';
+                return `An ad group contains one or more ads which target a shared set of keywords.${post.interviewDate}`;
               case 2:
-                return `Try out different ad text to see what brings in the most customers,
-                        and learn how to enhance your ads using features like ad extensions.
-                        If you run into any problems with your ads, find out how to tell if
-                        they're running and how to resolve approval issues.`;
+                return `documente veification in progress`;
               default:
-                return 'Unknown step';
+                return 'Awaiting Feedback';
             }
           }
 
@@ -66,7 +62,7 @@ class PostsShow extends Component {
                 <div className="col-md-12">
                     <div className="col-md-2"> </div>
                     <div className="col-md-8">
-                <Stepper activeStep={2} orientation="vertical">
+                <Stepper activeStep={1} orientation="vertical">
                      {steps.map((label, index) => {
                      return (
                         <Step key={label}>
@@ -86,14 +82,14 @@ class PostsShow extends Component {
                             
                                 <div className="col-md-4"> 
                                 
-                                <div className="col-md-4">   <label> Job Code &nbsp;- </label>   </div>
-                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                <div className="col-md-5">   <label> Job Code &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.jobCode}  </div>
                                 
                                  </div>
                                  <div className="col-md-6"> 
                                 
-                                <div className="col-md-4">   <label> location &nbsp;- </label>   </div>
-                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                <div className="col-md-5">   <label> location &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.location}  </div>
                                 
                                  </div>
                             </div>
@@ -101,30 +97,54 @@ class PostsShow extends Component {
                             
                                 <div className="col-md-4"> 
                                 
-                                <div className="col-md-4">   <label> Job Code &nbsp;- </label>   </div>
-                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                <div className="col-md-5">   <label> Type &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.employeeType}  </div>
                                 
                                  </div>
                                  <div className="col-md-6"> 
                                 
-                                <div className="col-md-4">   <label> Job Code &nbsp;- </label>   </div>
-                                <div className="col-md-8">  testdsbsdbdebdb  </div>
+                                <div className="col-md-5">   <label>HR &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.HR}  </div>
                                 
                                  </div>
+                            </div>
+                            <div className="row"> 
+                            
+                                <div className="col-md-4"> 
+                                
+                                <div className="col-md-5">   <label> Designation &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.designation}  </div>
+                                
+                                 </div>
+                                 <div className="col-md-6"> 
+                                
+                                <div className="col-md-5">   <label>Created AT &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.createdAt}  </div>
+                                
+                                 </div>
+                            </div>
+                            <div className="row"> 
+                            
+                                <div className="col-md-4"> 
+                                
+                                <div className="col-md-5">   <label> Interview &nbsp;- </label>   </div>
+                                <div className="col-md-7">  {post.venue} , {post.interviewDate} </div>
+                                
+                                 </div>
+                                 
                             </div>
                             <br />
 						 <div className="row"> 
                     <div className="col-md-4"> <label> Skills &nbsp;- </label>  <br />
-                        gsdkfsjkghkjseghksehgkisegkskghkugwguegf,fz.gnzkn,gfsbngshgiwkgnwmbgfs,m
+                       {post.skills}
 					</div>
                      </div>
                      <br />
                      <div className="row"> 
                     <div className="col-md-4"> <label> Roles and Responsibilties &nbsp;- </label>  <br />
-                    <ul> 
-                        <li><p> TEST </p> </li>
+                    <p>{post.responsibilities}  </p>
                         
-                    </ul>
+
 						</div>
                      </div>
 						

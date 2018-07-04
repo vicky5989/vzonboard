@@ -9,6 +9,7 @@ class JobPost extends Component {
     render() {
         let post = this.props.jobpost;
         let moredetails = `/posts/${post.id}`;
+        let mailto = `mailto:${post.HRContact}?Subject=${post.jobCode}`
         return (
             <div>
 
@@ -39,7 +40,7 @@ class JobPost extends Component {
 
 </div> <br />
             <div className="row">
-            <div className="col-md-2"> <a href="#/"> <button className="btn-xs btn-primary" > Contact HR </button> </a></div>
+            <div className="col-md-2"> <a href={mailto}> <button className="btn-xs btn-primary" > Contact HR </button> </a></div>
             <div className="col-md-offset-10">
                 <ul className="list-group">
 
